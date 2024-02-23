@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Tercer parcial</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8a3d6163-f9e7-4216-900b-7052a6e1a238" class="page sans"><header><img class="page-cover-image" src="Tercer%20parcial%208a3d6163f9e74216900b7052a6e1a238/bosque-1-e1577589217640.jpg" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🖥️</span></div><h1 class="page-title">Tercer parcial</h1><p class="page-description"></p></header><div class="page-body"><h2 id="fc5c6968-3012-49dd-88ce-701eea02bc38" class="">Métodos de ordenamiento y almacenamiento</h2><ul id="fa053294-a730-47da-8f5d-7f6c94003bce" class="toggle"><li><details open=""><summary>¿En qué se basa el ordenamiento Quick?</summary><p id="947c1a35-c345-4e30-a72d-24596ed325bb" class="">En identificar el valor pivote</p><p id="03b07066-aecf-4a25-b50f-ae11673c496a" class="">
+</p></details></li></ul><h2 id="c80f8986-ad32-46f8-be28-a7e5ade96fdf" class="">Almacenamiento lineal</h2><h3 id="f687f64a-bc2d-470a-a7df-5bd99ee3ced9" class="">Pilas y colas</h3><ul id="bf333632-22a7-4f27-a268-98881e98d207" class="toggle"><li><details open=""><summary>¿Cuál es el sistema de almacenamiento de una cola?</summary><p id="b23e64fc-66a8-472e-a004-d87e13d1e3dd" class="">FIFO (First in, first out)</p></details></li></ul><ul id="9de469e6-9856-4d94-b59d-3850268271be" class="toggle"><li><details open=""><summary>¿Cuál es el sistema de almacenamiento de una pila?</summary><p id="e5932cb9-2802-44b2-b83b-c5d190ad7e64" class="">LIFO (Last in, first out)</p></details></li></ul><h3 id="a8ab403a-56e6-4ce6-bf78-92b019a95b59" class="">Listas enlazadas</h3><ul id="57fce825-0b10-40dd-8897-9c23754413e0" class="toggle"><li><details open=""><summary>Lista enlazada: ¿Qué es?</summary><p id="cdf0b896-60fe-4db4-9730-118fb4ac8ff9" class="">Estructura de datos lineal</p></details></li></ul><ul id="9a1e53a2-8002-446f-9bc3-6da09d5de73c" class="toggle"><li><details open=""><summary>Lista enlazada: ¿Qué incluye?</summary><p id="3b72356d-fcb7-4b73-87c1-7c107364cb89" class="">Una serie de nodos conectados</p><ul id="170b2c3f-bac6-468b-adf6-6740d524ece4" class="toggle"><li><details open=""><summary>¿Qué incluye cada nodo?</summary><p id="180c538a-25c8-4e66-9056-1a912f79031d" class="">Cada nodo almacena los <strong>datos</strong> y la <strong>dirección</strong> del siguiente nodo</p></details></li></ul><ul id="3bcb8913-e995-49c9-9afe-ed6a765a4cf3" class="toggle"><li><details open=""><summary>Como se llama el primer elemento y hacía adonde apunta el último</summary><p id="2b83b9e8-a50b-4cfc-904e-e68014550559" class="">Cabeza y hacía un valor nulo, respectivamente</p></details></li></ul></details></li></ul><ul id="147bab6d-ba45-4137-b0a9-457642b27231" class="toggle"><li><details open=""><summary>Lista enlazada: ¿Qué tipo de listas enlazadas existen?</summary><ul id="03bffabe-bfb5-4592-bb96-c96e4504871a" class="bulleted-list"><li style="list-style-type:disc">Lista enlazada simple</li></ul><ul id="29a34f6f-dbba-4687-94dd-c6b3319a3dd6" class="bulleted-list"><li style="list-style-type:disc">Lista enlazada doble</li></ul><ul id="f775148e-9c80-4f7c-ac74-4614f0e742cd" class="bulleted-list"><li style="list-style-type:disc">Lista enlazada circular</li></ul></details></li></ul><ul id="45876f77-bc6e-4106-9af9-1b52b93d579c" class="toggle"><li><details open=""><summary>Lista enlazada: aplicaciones</summary><ul id="139c8375-3606-4cf0-893d-12230766b825" class="bulleted-list"><li style="list-style-type:disc">Asignación de memoria dinámica</li></ul><ul id="5f27a34f-e135-463a-95cc-e5ad0f3b032e" class="bulleted-list"><li style="list-style-type:disc">Implementado en pilas y colas</li></ul><ul id="867b0309-aa8a-4ad0-9abe-39dd6811b614" class="bulleted-list"><li style="list-style-type:disc">Tablas de Hash, y en gráficos (encriptación)</li></ul></details></li></ul><ul id="e0545b58-ae1e-41f6-8179-926f66c294a7" class="toggle"><li><details open=""><summary>Lista doblemente enlazada: funcionamiento</summary><p id="f79ea7a3-bc01-4ab7-a165-0731e2f3722f" class="">Agregamos un puntero al nodo anterior en una lista doblemente enlazada</p><ul id="67a2b717-5ef3-40c7-abb4-8c24ae977769" class="toggle"><li><details open=""><summary>Característica representativa:</summary><p id="68420d23-83ea-4d2f-925a-9425dd9aece2" class="">Podemos ir en cualquier dirección (adelante y atrás)</p></details></li></ul></details></li></ul><ul id="08055fd3-21c4-4651-85c9-f12bf06ba44f" class="toggle"><li><details open=""><summary>Lista circularmente enlazada: funcionamiento</summary><p id="e1521c2c-9307-46ff-969a-c24fc0c97ea0" class="">Agregamos al puntero del último nodo la dirección de la cabeza</p></details></li></ul><h2 id="bab11fa4-348b-4651-adc2-ce2ca37c0d7b" class="">Almacenamiento no lineal</h2><ul id="95e56708-a42e-48d1-9ec5-a995c3ba30b3" class="toggle"><li><details open=""><summary>Árboles binarios: definición</summary><p id="3f284205-d885-4ba1-bb75-788df1754ff7" class="">Son estructuras de datos conformadas por nodo en forma jerárquica</p><ul id="98f37c8d-2036-456b-b42f-ad9e3bbaec06" class="toggle"><li><details open=""><summary>Nodos en el árbol: contenido</summary><p id="20a01779-7873-4b5e-8df7-ea7bc16d38fd" class="">Además de la información, cuentan con una cantidad determinada de punteros</p><ul id="525b4b48-b778-485b-be10-6d4281afad5a" class="toggle"><li><details open=""><summary>¿Qué indica esa cantidad de punteros?</summary><p id="ddaeae11-f178-4058-8306-09cc9c017b3d" class="">Indica el grado del árbol</p></details></li></ul></details></li></ul></details></li></ul><ul id="db771099-1fe3-4580-a4c6-6ee9062afe09" class="toggle"><li><details open=""><summary>Árboles: ¿En qué se basan?</summary><p id="9533eb4c-b081-413e-846e-cf570317adef" class="">Relaciones padre e hijo</p><ul id="ed90b576-8b8b-49cc-a339-56b1e73ea16c" class="toggle"><li><details open=""><summary>Definición de padre e hijo</summary><p id="06932d17-7bf1-46f2-9147-f57cea14937c" class="">Un nodo es padre de otro si uno de sus punteros apunta a otro nodo llamado hijo.</p><p id="7f786525-077c-4ac0-a7e6-e66e02f96f9d" class="">Propiedad: todo nodo menos la raíz tiene al menos un padre</p></details></li></ul></details></li></ul><ul id="a9c898cd-1ecf-4f61-830c-c0b7985a8400" class="toggle"><li><details open=""><summary>Árboles: ¿Qué los caracteriza?</summary><p id="38b3fd3e-1bef-48d9-bb74-b7b46c97cdd0" class="">Se caracterizan por mantener una serie de datos ordenados en memoria</p></details></li></ul><ul id="bc692e62-2124-4263-9cdf-99e2b4248e97" class="toggle"><li><details open=""><summary>Árboles: ventajas</summary><p id="8ffee6f1-f4bd-4914-8ccd-59640671f36d" class="">Son más rápidos en comparación con las listas, pilas y colas (los almacenamiento lineales).</p><ul id="784cd08e-3f7c-4c36-bb7a-2b00e1cf7995" class="toggle"><li><details open=""><summary>¿En qué son más rápidas?</summary><ul id="553deb6f-dd0d-4343-bb41-cb9d87c00706" class="bulleted-list"><li style="list-style-type:disc">Inserción</li></ul><ul id="e5bf6972-4a56-44f9-9897-28c8654504e1" class="bulleted-list"><li style="list-style-type:disc">Búsqueda</li></ul><ul id="67fc2dba-f1d9-4eab-ab66-86c3dbf4879f" class="bulleted-list"><li style="list-style-type:disc">Eliminación</li></ul></details></li></ul></details></li></ul><ul id="0bc9a135-d743-445c-b900-1bec815c85aa" class="toggle"><li><details open=""><summary>Árboles: grado</summary><p id="223bbd34-aa2d-4639-b7ec-b69791af003d" class="">Indica cuantos hijos pueden tener como máximo cada nodo</p></details></li></ul><ul id="9a93caf6-1f75-443f-a77e-782fdc513f1a" class="toggle"><li><details open=""><summary>Árboles: altura</summary><p id="056f461d-e8f3-4481-94da-9594ed66f837" class="">Indica la distancia entre la raíz y el nodo más lejano</p><ul id="c46d2d86-7479-441d-ad11-a72bd8b524e8" class="toggle"><li><details open=""><summary>¿Qué es la distancia?</summary><p id="9558d686-42dd-4e63-8e40-a532b3c23b4f" class="">La cantidad de nodos entre ambos</p></details></li></ul></details></li></ul><ul id="8cc77755-d65c-4e7c-b9cb-fca4f68c595b" class="toggle"><li><details open=""><summary>Árboles: división </summary><p id="4b9995c0-5174-49e3-9955-32759f399054" class="">Se pueden dividir en dos subárboles, izquierdo y derecho (heredan las propiedades del árbol)</p><ul id="b8f7ce50-2f18-4b74-85b8-3a3dd01adbc7" class="toggle"><li><details open=""><summary>¿Qué característica pueden no heredar, y cual no puede variar?</summary><p id="3237cd30-f091-4f3b-9190-edbaed7a6091" class="">La altura puede variar, pero no el grado</p></details></li></ul></details></li></ul><ul id="213ea786-7e10-4230-87a8-971d95cb8d0f" class="toggle"><li><details open=""><summary>Árboles: conformación de las divisiones</summary><p id="c63bca6c-a4cb-4e79-8a39-a511f3ea27a7" class="">Existe un nodo raíz y, según algún criterio, los nodos con datos menores se ubican en el subárbol izquierdo y los datos mayores se ubican en el subárbol derecho</p><p id="4eb7f95b-d935-4a6a-baf8-1ddee221af13" class="">
+</p></details></li></ul><ul id="6e340a1c-6985-4707-9a77-441fe33e5336" class="toggle"><li><details open=""><summary>Árboles: recorridos</summary><p id="9f324786-b326-49af-88bf-f044df34070d" class="">Existen diversas formas para recorrer el árbol y obtener distintos ordenes</p><ul id="482de623-7a68-4f43-b553-b792f097f6e4" class="toggle"><li><details open=""><summary>¿Cuáles son estos ordenes?</summary><ul id="8c9e71d7-c632-4fc9-b5be-79fd0892a8cb" class="toggle"><li><details open=""><summary>Pre-orden</summary><p id="3b013a88-2164-4533-985d-312030aacc79" class="">Recorre raíz, subárbol izquierdo, subárbol derecho</p></details></li></ul><ul id="85f4522d-c923-4102-9938-6b34a3814797" class="toggle"><li><details open=""><summary>En-orden</summary><p id="240a76ad-9467-4c4b-a6a0-bb43c0b2dd72" class="">Recorre subárbol izquierdo, raíz, subárbol derecho</p></details></li></ul><ul id="9bd6952a-cad7-47d0-a480-8e1ceef03be3" class="toggle"><li><details open=""><summary>Post-orden</summary><p id="e5f1c276-a4df-446c-864a-75fba8be0e8f" class="">Recorre subárbol izquierdo, subárbol derecho, raíz</p></details></li></ul></details></li></ul></details></li></ul><p id="877779d0-21d5-4d8b-a9d2-a7d55f6e36ff" class="">Programa que utiliza un árbol binario para almacenar números generados aleatoriamente, para luego ser recorrido En-Orden</p><p id="22b2277f-1c92-4748-b7fe-d1268506f719" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
