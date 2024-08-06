@@ -1,0 +1,845 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Parte 1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="359259ee-918a-495e-9a62-91e48be19edf" class="page sans"><header><h1 class="page-title">Parte 1</h1><p class="page-description"></p></header><div class="page-body"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="085cf3db-eb5b-498b-9fe7-882c0dfdb50b" class="code"><code class="language-LaTeX">\documentclass[12pt]{article}
+
+\usepackage{hyperref}
+\usepackage[spanish]{babel}
+\usepackage[letterpaper]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\author{Mart\&#x27;{i}nez Gonz\&#x27;alez, Gabriel}
+\date{today}
+\title{Documentos de LATEX}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+	De acuerdo a la lista de ejercicios otorgada, para los ejercicios del 1 al 11 no se auxilie de ninugna herramienta de c\&#x27;alculo, m\&#x27;as que de usted mismo. La entrega debe realizarse en un archivo PDF generado del c\&#x27;odigo \LATEX\. El archivo debe tener nombre ejvarios.pdf. Los ejercicios obligatorios son 1, 3 y 11. La fecha límite de entrega es el 21 de febrero de 2022.
+
+\end{abstract}
+
+\section{Transformaciones de bases}
+
+Complete la siguieente tabla. Al inicuio de cada columna se indica la base en que debe estar el \&#x27;umero de la celda correspondiente. En cada rengl\&#x27;on se tiene el mismo n\&#x27;umero, pero representado en distintas bases.
+
+\begin{center}
+\begin{tabular}{||l|c|c|c|r||}
+
+\hline
+base 2 &amp; base 4 &amp; base 8 &amp; base 10 &amp; base 16 \\ \hline
+110010000001 &amp; 302001 &amp; 6201 &amp; 3201 &amp; C81 \\ \hline
+11101001010 &amp; 131022 &amp; 3512 &amp; 1866 &amp; 74A \\ \hline
+100101010110 &amp; 211112 &amp; 4526 &amp; 2390 &amp; 956 \\ \hline
+11001111001 &amp; 121321 &amp; 3171 &amp; 1657 &amp; 679 \\ \hline
+100111010010 &amp; 213102 &amp; 4722 &amp; 2514 &amp; 9D2 \\ \hline
+11010111000 &amp; 122320 &amp; 3270 &amp; 1720 &amp; 6B8 \\ \hline
+101111111000 &amp; 233320 &amp; 5770 &amp; 3064 &amp; BF8 \\ \hline
+11001000001 &amp; 121001 &amp; 3101 &amp; 1601 &amp; 641 \\ \hline
+101011011000 &amp; 223120 &amp; 5330 &amp; 2776 &amp; AD8 \\ \hline
+10011011001 &amp; 103121 &amp; 2331 &amp; 1241 &amp; 4D9 \\ \hline
+
+\end{tabular}
+\end{center}
+\\
+
+\begin{center}
+\begin{tabular}{||l|c|c|c|r||}
+
+110010100 &amp; 12110 &amp; 624 &amp; 404 &amp; 194 \\ \hline
+110011001010 &amp; 303022 &amp; 6312 &amp; 3274 &amp; CCA \\ \hline
+1111010000 &amp; 33100 &amp; 1720 &amp; 976 &amp; 3D0 \\ \hline
+11 10 11 10 11 10 &amp; 32 32 32 &amp; 7356 &amp; 3822 &amp; EEE \\ \hline
+101001100101 &amp; 221211 &amp; 5145 &amp; 2661 &amp; A65 \\ \hline
+10100001001 &amp; 110021 &amp; 2411 &amp; 1289 &amp; 509 \\ \hline
+100001010101 &amp; 201111 &amp; 4125 &amp; 2133 &amp; 855 \\ \hline
+111001011011 &amp; 321123 &amp; 7133 &amp; 3675 &amp; E5B \\ \hline
+110000000100 &amp; 300010 &amp; 6004 &amp; 3076 &amp; C04 \\ \hline
+111011100100 &amp; 323210 &amp; 7344 &amp; 3812 &amp; EE4 \\ \hline
+110101100000 &amp; 311200 &amp; 6540 &amp; 3424 &amp; D60 \\ \hline
+1100101001 &amp; 30221 &amp; 1451 &amp; 809 &amp; 329 \\ \hline
+11010011111 &amp; 122133 &amp; 3237 &amp; 1695 &amp; 69F \\ \hline
+10010100101 &amp; 102211 &amp; 2245 &amp; 1189 &amp; 4A5 \\ \hline
+110000000 &amp; 12000 &amp; 600 &amp; 384 &amp; 180 \\ \hline
+10101100000 &amp; 111200 &amp; 2540 &amp; 1376 &amp; 560 \\ \hline
+101001110111 &amp; 221313 &amp; 5167 &amp; 2679 &amp; A77 \\ \hline
+10001110 &amp; 2032 &amp; 216 &amp; 142 &amp; 8E \\ \hline
+101001110101 &amp; 221311 &amp; 5165 &amp; 2677 &amp; A75 \\ \hline
+101111000010 &amp; 233002 &amp; 5702 &amp; 3010 &amp; BC2 \\ \hline
+110111010 &amp; 12322 &amp; 672 &amp; 442 &amp; 1BA \\ \hline
+100001011110 &amp; 201132 &amp; 4136 &amp; 2142 &amp; 85E \\ \hline
+10011101011 &amp; 103223 &amp; 2353 &amp; 1259 &amp; 4EB \\ \hline
+100101001110 &amp; 211032 &amp; 4516 &amp; 2382 &amp; 94E \\ \hline
+1100100 &amp; 1210 &amp; 144 &amp; 100 &amp; 64 \\ \hline
+11110110 &amp; 3312 &amp; 365 &amp; 246 &amp; F6 \\ \hline
+10111001111 &amp; 113033 &amp; 2717 &amp; 1487 &amp; 5CF \\ \hline
+101101101000 &amp; 231220 &amp; 5550 &amp; 2920 &amp; B68 \\ \hline
+11111110101 &amp; 133311 &amp; 3765 &amp; 2037 &amp; 7F5 \\ \hline
+101111101110 &amp; 233232 &amp; 5756 &amp; 3054 &amp; BEE \\ \hline
+111111011101 &amp; 333131 &amp; 7735 &amp; 4061 &amp; FDD \\ \hline
+110100010000 &amp; 310100 &amp; 6420 &amp; 3344 &amp; D10 \\ \hline
+11010110101 &amp; 122311 &amp; 3265 &amp; 1717 &amp; 6B5 \\ \hline
+10101111101 &amp; 111331 &amp; 2575 &amp; 1405 &amp; 57D \\ \hline
+10011101101 &amp; 103231 &amp; 2355 &amp; 1261 &amp; 4ED \\ \hline
+10000011000 &amp; 100120 &amp; 2030 &amp; 1048 &amp; 418 \\ \hline
+110100110000 &amp; 310300 &amp; 6460 &amp; 3376 &amp; D30 \\ \hline
+
+\end{tabular}
+\end{center}
+\\
+
+\begin{center}
+\begin{tabular}{||l|c|c|c|r||}
+
+1010010000 &amp; 22100 &amp; 1220 &amp; 656 &amp; 290 \\ \hline
+10100101101 &amp; 110231 &amp; 2455 &amp; 1325 &amp; 52D \\ \hline
+11110011010 &amp; 132122 &amp; 3632 &amp; 1946 &amp; 79A \\ \hline
+100111110101 &amp; 213311 &amp; 4765 &amp; 2549 &amp; 9F5 \\ \hline
+111001111101 &amp; 321331 &amp; 7175 &amp; 3709 &amp; E7D \\ \hline
+1110100100 &amp; 32210 &amp; 1644 &amp; 932 &amp; 3A4 \\ \hline
+11111010100 &amp; 133110 &amp; 3724 &amp; 2004 &amp; 7D4 \\ \hline
+110001000100 &amp; 301010 &amp; 6104 &amp; 3140 &amp; C44 \\ \hline
+11110001111 &amp; 132033 &amp; 3617 &amp; 1935 &amp; 78F \\ \hline
+110111101110 &amp; 313232 &amp; 6756 &amp; 3566 &amp; DEE \\ \hline
+10000111100 &amp; 100330 &amp; 2074 &amp; 1084 &amp; 43C \\ \hline
+110000110010 &amp; 300302 &amp; 6062 &amp; 3122 &amp; C32 \\ \hline
+
+\end{tabular}
+\end{center}
+
+\section{Evaluación de expresiones}
+
+Eval\&#x27;ue las siguientes expresiones e indique algún comentario en caso de haber una incosistencia o particularidad del lenguake de programaci\&#x27;on en C o en Java. Utilizamos vardouble para indicar una variable de tipo b\&#x27;asico o primitivo double y varint para indicar una variable de tipo b\&#x27;asico o primitivo int.
+\\
+1. $( ( ( ( \~\_-4 ) || ( -3 == -1 ) ) ) ? ( ( ( ! -1 ) != ( vardouble = 4 ) ) ) : ( ( ( ! 2 ) \&amp;\&amp; (-2 &gt;= 4 ) ) ) \&amp;\&amp; ( ( ( 2 \!= 1 ) ∗ ( varint \&amp;= 3 ) ) &lt;&lt; ( ( \~\_ 1 ) − ( \~\_ -4 ) ) ) ) \longrightarrow true$
+2. $( -5 ∗ -2 )\longrightarrow -10 = true$\\
+3. $( ( ( ! -3.47 ) &gt; ( \~\_ 1 ) ) &lt; ( ( 1 &gt;&gt; 3 ) \&amp; ( \~\_ 1 ) ) ) \longrightarrow false$\\
+4. $( ( ( - ( ! -1 ) ) == ( + ( \~\_ -4 ) ) ) \&amp; ( ( ( ! -3.47 ) ) ? (( 1 \&amp; 3 ) ) : (( ! 2 ) ) || ( ( ! -1.88 ) == ( \~\_ 1 ) ) ) ) \longrightarrow false$\\
+5. $( -5 \&amp; -3 ) \longrightarrow true$\\
+6. $( ( ! -1.88 ) \&amp; ( \~\_ -4 ) ) \longrightarrow false$\\
+7. $( ( \~\_ ( -5 | -4 ) ) || ( ( 4 - -1 ) / ( ! 4 ) ) )\longrightarrow false$ \\
+Nota: esta expresi\&#x27;on depende de algunas excepciones. Sin embargo, en general sería falsa.\\
+8. $( 4 \% 2 ) \longrightarrow 0 = false$\\
+9. $( ( ! -1 ) + ( \~\_ -4 ) ) \longrightarrow true$\\
+10. $( ( 4 - -1 ) &gt; ( 2 + 1.93 ) ) \longrightarrow true$\\
+11. $( - ( 4 | -3 ) ) \longrightarrow true$\\
+12. $( - ( ( ( ! -1.88 ) * ( \~\_ -4 ) ) &gt;&gt; ( ( -2 \% -5 ) &gt;= ( varint \&amp;= -5 ) ) ) ) \longrightarrow false$\\
+13. $( ( ( \~\_ -4 ) \&amp; ( \~\_ 1 ) ) - ( ( -1 + -4 ) &gt;= ( 0.57 == -4 ) ) )\longrightarrow true$\\
+14. $( ( ! -1 ) &lt;&lt; ( 2 \&amp;\&amp; 1 ) )\longrightarrow false$\\
+15. $( ( ( ! ( ! 4 ) ) \% ( ( ! -1.88 ) != ( \~\_ 1 ) ) ) * ( ( ( ! 2 ) \&amp; ( \~\_ -4 ) ) + ( + ( -5 \&amp; 3.06 ) )) )\longrightarrow acci\&#x27;on\_invalida.$ 
+No se puede usar un operador binario en una evaluación entre números enteros. 
+La sintaxis correcta es ( ( ( ! ( ! 4 ) ) \% ( ( ! -1.88 ) != ( \~\_ 1 ) ) ) * ( ( ( ! 2 ) \&amp; ( \~\_ -4 ) ) + ( + ( -5 \&amp;\&amp; 3.06 ) )) )\longrightarrow acci\&#x27;on\_invalida\\
+16. $( ( vardouble = -3 ) \&amp; ( -1 + -4 ) )\longrightarrow acci\&#x27;on\_invalida$. 
+No se puede usar un operador binario en una evaluación entre números enteros. 
+La sintaxis correcta es $( ( vardouble = -3 ) \&amp;\&amp; ( -1 + -4 ) ) \longrightarrow true$\\
+17. $( \~\_ ( ( ( -1.46 \&amp;\&amp; 0 ) != ( ! -1.88 ) )\^( ( ! -1.88 ) != ( ! -1.88 ) ) ) )\longrightarrow true$\\
+18. $( 4 &gt;= -1 )\longrightarrow true$\\
+19. $( + ( ( ( -1 + -4 ) * ( 4 \% 2 ) ) / ( - ( -2 * 1 ) ) ) )\longrightarrow false$\\
+20. $( ( ( ! -1.88 ) / ( \~\_ -4 ) ) \&lt;\&lt; ( ( ! 2 ) &lt;= ( \~\_ 1 ) ) )\longrightarrow false$\\
+21. $( ( ( ( 1 \&amp;\&amp; -2 ) &lt;&lt; ( \~\_ -4 ) )\^( ( -5 \% 0 ) \% ( \~\_ 1 ) ) ) != ( ( ( -1 == -2 ) \&amp; ( vardouble /= 0 ) ) \&amp; ( \~\_ ( 2 ∗ 4 ) ) ) )\longrightarrow acci\&#x27;on\_invalida$.
+Nota: hay un error de sintaxis, pues es un determinado punto se \&amp; en lugar de \&amp;\&amp;; pero, adem\&#x27;as, hay una divisi\&#x27;on entre 0.\\
+22. $( ( ( ! -1.88 ) &gt; ( vardouble /= -4 ) ) \&gt;\&gt; ( ! ( -3 == -1 ) ) )\longrightarrow false$\\
+23. $( ( \~\_ -4 ) | ( \~\_  -4 ) )\longrightarrow true$\\
+24. $( ! 4 )\longrightarrow false$\\
+25. $( ( + ( ( 0 || 2 ) \% ( \~\_ -4 ) ) ) | ( ( ( \~\_ 1 ) == ( -1.46 \&amp;\&amp; 0 ) ) ) ? ( ( ( -5 \&amp;\&amp; -2.65 ) ) ? (( ! -1 ) ) : (( \~\_ -4 ) ) ) : ( ( ( ! 2 ) ) ? (( ! 4 ) ) : (( \~\_ -4 ) ) ) )\longrightarrow false$\\
+26. $( ( 0 \&lt;\&lt; -2.49 ) ) ? (( -2 \&amp;\&amp; 3.35 ) ) : (( -2 \&amp;\&amp; 3.35 ) )\longrightarrow false$. 
+Nuevamente, hay una acción invalida al querer operar de forma binaria con n\&#x27;umeros enteros y flotantes.\\
+27. $( -2 * 0 )\longrightarrow 0=false$\\
+28. $( ( ( ( -3 &lt;&lt; -5 ) \&lt;\&lt; ( vardouble / = 0 ) ) \&amp; ( ( 4 \% 2 ) == ( ! -1 ) ) ) &lt; ( ( ( -5 \&amp; 3.06 ) &gt;= ( -5 ! = 3.01 ) ) &gt;= ( ( -2.86 + 4 ) ! = ( vardouble = 4 ) ) ) )\longrightarrow acci\&#x27;on\_invalida$. 
+Hay algunos errores entre operadores binarios y números enteros, así como una división entre 0.\\
+29. $( ( -2 || -3 ) == ( ! 2 ) )\longrightarrow false$\\
+30. $( ( 2 &gt;= 3 ) - ( 2 &gt;= 3 ) )\longrightarrow false$\\
+
+\section{D\&#x27;{i}a del año}
+
+Si nos dan dos fechas de un mismo a\~no y nos indican en qu\&#x27;e d\&#x27;{i}a de la semana se supone que cae la primera fecha, ¿en qu\&#x27;e d\&#x27;ia de la semana deber\&#x27;{i}a caer la segunda fecha?
+
+Otorgaremos los valores: $domingo = 0$, $lunes = 1$, $martes = 2$, $mi\&#x27;ercoles = 3$, $jueves = 4$, $viernes = 5$, $s\&#x27;abado = 6$.
+Ahora, calcularemos la distancia entre la primera y la segunda fecha (D). Esto es, primero calculamos a la cantidad de d\&#x27;{i}as que tiene el mes de la primer fecha, le restamos el d\&#x27;{i}a de la primer fecha. D\&#x27;espues, c\&#x27;alculamos los días que hay entre el \&#x27;ultimo día del mes de la primer fecha y el primer día del mes de la segunda. Finalmente, a todo eso sumamos el día de la segunda fecha y el valor que otorgamos desde un principio al d\&#x27;{i}a de la semana de la primera fecha. A esta cantidad le hacemos el m\&#x27;odulo 7 ($Dmod7$) y ese valor lo volvemos a transformar seg\&#x27;un el día que le corresponde, otorgado anteriormente.
+Por ejemplo: si la primer fecha fuera 4 de enero y la segunda 6 de septiembre, ambas del 2022. Primero har\&#x27;{i}amos $31-4=27$, luego sumaríamos los días de febrero, marzo, abril, mayo, junio, julio y agosto: $28+31+30+31+30+31+31=212$. Finalmente, sumamos 6 (de septiembre) y el valor del d\&#x27;{i}a de la primera fecha (en este caso, 4 de enero fue martes): $6+2=8$.
+Haciendo la suma total, tendr\&#x27;{i}amos que la distancia entre ambas fechas es %D=27+212+8=247%.
+Ahora, simplemente hacemos el m\&#x27;odulo 7 de este n\&#x27;umero, tal que:
+$$247mod7=2$$
+As\&#x27;{i} pues, podemos asegurar que el 6 de septiembre de este a\~no ser\&#x27;a martes. Lo cual se puede corroborar viendo un calendario.
+
+Este m\&#x27;etodo se puede programar e implementar en un programa al otorgarle un valor n\&#x27;umerico a los d\&#x27;{i}as de la semana y a cada mes (seg\&#x27;un su n\&#x27;umero de d\&#x27;{i}as) y haciendo los calculos para considerar años biciestos. Así, las distancias entre las fechas se pueden calcular facilmente.  
+
+\end{document}</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
